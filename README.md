@@ -6,7 +6,8 @@ The Tool Store Application is a software system designed to handle tool rentals.
 Features:
 Check out tools for a specified number of days Calculate rental charges based on various factors such as tool type, rental duration, and discounts Apply discounts to rental charges Generate rental agreements with detailed information about the rental transaction
 
- Technologies Used
+     Technologies Used
+ 
 Java: The core programming language used for the backend logic.
 
 Spring Boot: A powerful framework used to build and deploy Java-based applications easily.
