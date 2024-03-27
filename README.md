@@ -1,9 +1,9 @@
 Tool Store Application
 
-Description
+Description:
 The Tool Store Application is a software system designed to handle tool rentals. It provides functionality for checking out tools, calculating rental charges, applying discounts, and generating rental agreements.
 
-Features
+Features:
 Check out tools for a specified number of days Calculate rental charges based on various factors such as tool type, rental duration, and discounts Apply discounts to rental charges Generate rental agreements with detailed information about the rental transaction
 
  Technologies Used
@@ -21,7 +21,7 @@ Tomcat: Servlet container used for deploying the Spring Boot application.
 
 Git: Version control system used for collaborative development and managing source code.
 
- Getting Started
+Getting Started:
 Clone the repository to your local machine.
 
 Make sure you have Java and Maven installed.
@@ -30,7 +30,7 @@ Build the project using Maven: mvn clean install.
 
 Run the application: java -jar toolstore.jar.
 
-Checkout Request
+Checkout Request:
 
 Endpoint: /checkout
 Method: POST
@@ -61,7 +61,7 @@ Request Body:
     "discountAmount": "3.184",
     "finalCharge": "12.736"
   }
-Additional Notes
+Additional Notes:
 
 The toolCode represents the unique code assigned to each tool.
 
