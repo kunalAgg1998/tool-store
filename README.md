@@ -22,7 +22,7 @@ Tomcat: Servlet container used for deploying the Spring Boot application.
 
 Git: Version control system used for collaborative development and managing source code.
 
-Getting Started:
+     Getting Started:
 
 Clone the repository to your local machine.
 
@@ -32,37 +32,37 @@ Build the project using Maven: mvn clean install.
 
 Run the application: java -jar toolstore.jar.
 
-Checkout Request:
+         Checkout Request:
 
 Endpoint: /checkout
 Method: POST
 
-Request Body:
+      Request Body:
 
-{
- "toolCode": "LADW",
- "rentalDays": 10,
- "discountPercent": 20,
- "checkoutDate": "07/07/24"
- }
+       {
+         "toolCode": "LADW",
+         "rentalDays": 10,
+         "discountPercent": 20,
+         "checkoutDate": "07/07/24"
+      }
 
  Checkout Response
- Response Body:
+     Response Body:
 
-   {
-    "toolCode": "LADW",
-    "toolType": "LADDER",
-    "toolBrand": "Werner",
-    "rentalDays": 10,
-    "checkoutDate": "07/07/24",
-    "dueDate": "07/17/24",
-    "dailyRentalCharge": "1.99",
-    "chargeDays": 8,
-    "preDiscountCharge": "15.92",
-    "discountPercent": 20,
-    "discountAmount": "3.184",
-    "finalCharge": "12.736"
-  }
+      {
+       "toolCode": "LADW",
+       "toolType": "LADDER",
+       "toolBrand": "Werner",
+       "rentalDays": 10,
+       "checkoutDate": "07/07/24",
+       "dueDate": "07/17/24",
+       "dailyRentalCharge": "1.99",
+       "chargeDays": 8,
+       "preDiscountCharge": "15.92",
+       "discountPercent": 20,
+       "discountAmount": "3.184",
+       "finalCharge": "12.736"
+     }
 Additional Notes:
 
 The toolCode represents the unique code assigned to each tool.
