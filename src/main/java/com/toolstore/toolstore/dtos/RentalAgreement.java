@@ -149,7 +149,7 @@ public class RentalAgreement {
 
 
 
-      // function to print the details
+      // Function to print the details of Rental Agreement
     public void printDetails() {
         DecimalFormat currencyFormat = new DecimalFormat("$#,##0.00");
         DecimalFormat percentFormat = new DecimalFormat("##%");

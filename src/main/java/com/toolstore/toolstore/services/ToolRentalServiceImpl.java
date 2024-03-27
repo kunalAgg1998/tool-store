@@ -34,8 +34,21 @@ public class ToolRentalServiceImpl implements ToolRentalService {
     }
 
     private void populateHolidaySet() {
-        holidaySet.add(LocalDate.of(2024, Month.JULY, 4)); // Independence Day
-        holidaySet.add(LocalDate.of(2024, Month.SEPTEMBER, 2)); // Labor Day
+        // Independence Day (July 4th)
+        LocalDate independenceDay = LocalDate.of(LocalDate.now().getYear(), Month.JULY, 4);
+        if (independenceDay.getDayOfWeek() == DayOfWeek.SATURDAY) {
+            independenceDay = independenceDay.minusDays(1); // Observed on Friday before
+        } else if (independenceDay.getDayOfWeek() == DayOfWeek.SUNDAY) {
+            independenceDay = independenceDay.plusDays(1); // Observed on Monday after
+        }
+        holidaySet.add(independenceDay);
+
+        // Labor Day (First Monday in September)
+        LocalDate laborDay = LocalDate.of(LocalDate.now().getYear(), Month.SEPTEMBER, 1);
+        while (laborDay.getDayOfWeek() != DayOfWeek.MONDAY) {
+            laborDay = laborDay.plusDays(1);
+        }
+        holidaySet.add(laborDay);
     }
 
     @Override
