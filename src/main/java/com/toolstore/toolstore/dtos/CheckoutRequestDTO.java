@@ -1,17 +1,18 @@
 package com.toolstore.toolstore.dtos;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CheckoutRequestDTO {
     private String toolCode;
     private int rentalDays;
     private int discountPercent;
-    private LocalDate checkoutDate;
+    private String checkoutDate;
 
     public CheckoutRequestDTO() {
     }
 
-    public CheckoutRequestDTO(String toolCode, int rentalDays, int discountPercent, LocalDate checkoutDate) {
+    public CheckoutRequestDTO(String toolCode, int rentalDays, int discountPercent, String checkoutDate) {
         this.toolCode = toolCode;
         this.rentalDays = rentalDays;
         this.discountPercent = discountPercent;
@@ -42,11 +43,13 @@ public class CheckoutRequestDTO {
         this.discountPercent = discountPercent;
     }
 
-    public LocalDate getCheckoutDate() {
+    public String getCheckoutDate() {
         return checkoutDate;
     }
 
-    public void setCheckoutDate(LocalDate checkoutDate) {
+    public void setCheckoutDate(String checkoutDate) {
         this.checkoutDate = checkoutDate;
     }
+    // Method to format LocalDate checkoutDate to String
+
 }

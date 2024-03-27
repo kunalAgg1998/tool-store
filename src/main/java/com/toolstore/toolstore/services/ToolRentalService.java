@@ -1,6 +1,6 @@
 package com.toolstore.toolstore.services;
 
-import com.toolstore.toolstore.dtos.RentalAgreement;
+import com.toolstore.toolstore.dtos.RentalAgreementDTO;
 
 import java.time.LocalDate;
 /**
@@ -16,5 +16,5 @@ public interface ToolRentalService {
      * @param checkoutDate  The date when the tool is checked out.
      * @return The rental agreement containing details of the rental transaction.
      */
-    RentalAgreement checkoutTool(String toolCode, int rentalDays, int discountPercent, LocalDate checkoutDate);
+    RentalAgreementDTO checkoutTool(String toolCode, int rentalDays, int discountPercent, LocalDate checkoutDate);
 }

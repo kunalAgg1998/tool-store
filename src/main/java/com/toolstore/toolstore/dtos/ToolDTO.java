@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 /**
  * Represents a tool available for rental.
  */
-public class Tool{
+public class ToolDTO {
     private String code;
     private String type;
     private String brand;
@@ -15,7 +15,7 @@ public class Tool{
     /**
      * Default constructor for Tool class.
      */
-    public Tool() {
+    public ToolDTO() {
     }
 
     /**
@@ -29,7 +29,7 @@ public class Tool{
      * @param weekendCharge indicates if weekend rental is allowed for the tool
      * @param holidayCharge indicates if holiday rental is allowed for the tool
      */
-    public Tool(String code, String type, String brand, BigDecimal dailyCharge, boolean weekdayCharge, boolean weekendCharge, boolean holidayCharge) {
+    public ToolDTO(String code, String type, String brand, BigDecimal dailyCharge, boolean weekdayCharge, boolean weekendCharge, boolean holidayCharge) {
         this.code = code;
         this.type = type;
         this.brand = brand;

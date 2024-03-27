@@ -9,8 +9,8 @@ import java.time.format.DateTimeFormatter;
 /**
  * Represents a Rental Agreement for a tool rental.
  */
-public class RentalAgreement {
-    private Tool tool;
+public class RentalAgreementDTO {
+    private ToolDTO toolDTO;
     private int rentalDays;
     private LocalDate checkoutDate;
     private LocalDate dueDate;
@@ -24,12 +24,12 @@ public class RentalAgreement {
      * Default constructor for RentalAgreement class.
      */
 
-    public RentalAgreement() {
+    public RentalAgreementDTO() {
     }
     /**
      * Parameterized constructor for RentalAgreement class.
      *
-     * @param tool              the rented tool
+     * @param toolDTO              the rented tool
      * @param rentalDays        the number of rental days
      * @param checkoutDate      the checkout date
      * @param dueDate           the due date
@@ -41,8 +41,8 @@ public class RentalAgreement {
      * @param finalCharge       the final charge after discount
      * @param brandCharge       the brand charge
      */
-    public RentalAgreement(Tool tool, int rentalDays, LocalDate checkoutDate, LocalDate dueDate, BigDecimal dailyRentalCharge, int chargeDays, BigDecimal preDiscountCharge, int discountPercent, BigDecimal discountAmount, BigDecimal finalCharge, BigDecimal brandCharge) {
-        this.tool = tool;
+    public RentalAgreementDTO(ToolDTO toolDTO, int rentalDays, LocalDate checkoutDate, LocalDate dueDate, BigDecimal dailyRentalCharge, int chargeDays, BigDecimal preDiscountCharge, int discountPercent, BigDecimal discountAmount, BigDecimal finalCharge, BigDecimal brandCharge) {
+        this.toolDTO = toolDTO;
         this.rentalDays = rentalDays;
         this.checkoutDate = checkoutDate;
         this.dueDate = dueDate;
@@ -54,25 +54,25 @@ public class RentalAgreement {
         this.finalCharge = finalCharge;
     }
     @JsonIgnore
-    public Tool getTool() {
-        return tool;
+    public ToolDTO getTool() {
+        return toolDTO;
     }
     @JsonProperty("toolCode")
      public String getToolCode(){
-        return tool.getCode();
+        return toolDTO.getCode();
      }
     @JsonProperty("toolType")
     public String getToolType(){
-        return tool.getType();
+        return toolDTO.getType();
     }
     @JsonProperty("toolBrand")
     public String getToolBrand(){
-        return tool.getBrand();
+        return toolDTO.getBrand();
     }
 
 
-    public void setTool(Tool tool) {
-        this.tool = tool;
+    public void setTool(ToolDTO toolDTO) {
+        this.toolDTO = toolDTO;
     }
 
     public int getRentalDays() {
@@ -85,6 +85,15 @@ public class RentalAgreement {
 
     public LocalDate getCheckoutDate() {
         return checkoutDate;
+    }
+    @JsonProperty("checkoutDate")
+    public String getFormattedCheckoutDate() {
+        return checkoutDate.format(DateTimeFormatter.ofPattern("MM/dd/yy"));
+    }
+
+    @JsonProperty("dueDate")
+    public String getFormattedDueDate() {
+        return dueDate.format(DateTimeFormatter.ofPattern("MM/dd/yy"));
     }
 
     public void setCheckoutDate(LocalDate checkoutDate) {
@@ -152,19 +161,19 @@ public class RentalAgreement {
       // Function to print the details of Rental Agreement
     public void printDetails() {
         DecimalFormat currencyFormat = new DecimalFormat("$#,##0.00");
-        DecimalFormat percentFormat = new DecimalFormat("##%");
+        DecimalFormat percentFormat = new DecimalFormat("##0%");
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yy");
-        System.out.println("Tool code: " + tool.getCode() + " Tool type: " + tool.getType());
-        System.out.println("Brand: " + tool.getBrand());
+        System.out.println("Tool code: " + toolDTO.getCode());
+        System.out.println("Tool type: " + toolDTO.getType());
+        System.out.println("Brand: " + toolDTO.getBrand());
         System.out.println("Rental days: " + rentalDays);
         System.out.println("Checkout date: " + checkoutDate.format(dateFormatter));
         System.out.println("Due date: " + dueDate.format(dateFormatter));
         System.out.println("Daily rental charge: " + currencyFormat.format(dailyRentalCharge));
         System.out.println("Charge days: " + chargeDays);
         System.out.println("Pre-discount charge: " + currencyFormat.format(preDiscountCharge));
-        System.out.println("Discount percent: " + percentFormat.format(discountPercent));
+        System.out.println("Discount percent: " + percentFormat.format((double) discountPercent / 100));
         System.out.println("Discount amount: " + currencyFormat.format(discountAmount));
-
         System.out.println("Final charge: " + currencyFormat.format(finalCharge));
     }
 }
