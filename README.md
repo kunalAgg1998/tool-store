@@ -22,6 +22,7 @@ Tomcat: Servlet container used for deploying the Spring Boot application.
 Git: Version control system used for collaborative development and managing source code.
 
 Getting Started:
+
 Clone the repository to your local machine.
 
 Make sure you have Java and Maven installed.
